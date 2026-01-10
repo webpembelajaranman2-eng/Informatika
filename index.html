@@ -92,11 +92,182 @@
   <style>@view-transition { navigation: auto; }</style>
  </head>
  <body class="h-full">
- <div id="app-container" class="h-full w-full"><!-- HALAMAN PEMILIHAN LOGIN --> 
-  <div id="login-select-page" class="page active w-full h-full" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);"> <div style="min-height: 100%; display: flex; align-items: center; justify-content: center; padding: 20px;"> <div style="background: white; border-radius: 20px; padding: 40px; max-width: 500px; width: 100%; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);"> <div style="text-align: center; margin-bottom: 32px;"> <div style="width: 120px; height: 120px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;"> <img src="https://lh3.googleusercontent.com/d/1SbBNz5SErKEybxrWn2HQt1h6gFPzHHxc" alt="Logo MAN 2 Garut" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"> <span style="font-size: 80px; display: none;">🏫</span> </div> <h1 style="font-size: 28px; font-weight: bold; color: #1e293b; margin-bottom: 8px;">WEB Pembelajaran Informatika</h1> <p style="font-size: 16px; color: #64748b;">MAN 2 Garut</p> </div> <div style="text-align: center; margin-bottom: 24px;"> <p style="font-size: 18px; font-weight: 600; color: #1e293b;">Pilih Jenis Login</p> </div> <div style="display: grid; gap: 16px;"><button onclick="showLoginPage('student')" style="width: 100%; background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; border: none; padding: 20px; border-radius: 12px; font-size: 18px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(30, 58, 138, 0.4); display: flex; align-items: center; justify-content: center; gap: 12px;"> <span style="font-size: 32px;">🎓</span> <span>Login Siswa</span> </button> <button onclick="showLoginPage('admin')" style="width: 100%; background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); color: white; border: none; padding: 20px; border-radius: 12px; font-size: 18px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4); display: flex; align-items: center; justify-content: center; gap: 12px;"> <span style="font-size: 32px;">👨‍💼</span> <span>Login Admin</span> </button> </div> </div> </div>
-  <!-- ================= PANDUAN PENGGUNAAN WEB (VISUAL) ================= -->
-   <!-- Tombol Panduan --> 
-   <div style="text-align:center; margin-top:8px; margin-bottom:60px;"> <button onclick="openPanduan()" style=" background:linear-gradient(135deg,#4f6caf,#0c145c); color:white; padding:18px 32px; min-width:420px; border-radius:12px; border:none; font-size:18px; font-weight:600; cursor:pointer; text-align:center; box-shadow:0 4px 20px rgba(37,99,235,.35); "> 📘 Panduan Penggunaan </button> </div> <!-- Overlay --> <div id="panduanModal" style="display:none; position:fixed; inset:0; background:rgba(15,23,42,.65); z-index:9999; align-items:center; justify-content:center;"> <!-- Card --> <div style="background:white; width:92%; max-width:900px; border-radius:22px; padding:30px; max-height:88vh; overflow-y:auto;"> <h2 style="font-size:26px; font-weight:800; color:#1e293b; margin-bottom:10px;"> 🧭 Alur Penggunaan Web Pembelajaran Informatika </h2> <p style="color:#475569; margin-bottom:22px;"> Web ini dirancang dengan <b>sistem pembelajaran berurutan</b>. Siswa <b>tidak dapat melompati materi</b>. Semua aktivitas tercatat dan dipantau oleh guru. </p> <!-- STEP 1 --> <div style="display:flex; gap:16px; margin-bottom:20px;"> <div style="font-size:34px;">🔐</div> <div> <h3 style="font-weight:700; font-size:18px;">Login Pengguna</h3> <p style="color:#475569;"> Pengguna dapat masuk sebagai <b>Siswa</b> atau <b>Guru</b>. Setelah memilih login, pengguna mengisi <b>nama</b> dan <b>memilih kelas</b>. </p> </div> </div> <!-- STEP 2 --> <div style="display:flex; gap:16px; margin-bottom:20px;"> <div style="font-size:34px;">📚</div> <div> <h3 style="font-weight:700; font-size:18px;">Materi Aktif</h3> <p style="color:#475569;"> Saat ini materi yang terbuka adalah <b>Semester 2 – Pertemuan 8</b>. Materi Semester 1 sudah ditutup dan tidak dapat diakses kembali. </p> </div> </div> <!-- STEP 3 --> <div style="display:flex; gap:16px; margin-bottom:20px;"> <div style="font-size:34px;">➡️</div> <div> <h3 style="font-weight:700; font-size:18px;">Alur Belajar Wajib</h3> <p style="color:#475569;"> Siswa harus mengikuti pembelajaran secara <b>berurutan</b>: </p> <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-top:10px;"> <div style="background:#eff6ff; padding:10px; border-radius:10px;">📘 Materi</div> <div style="background:#eff6ff; padding:10px; border-radius:10px;">🎥 Video</div> <div style="background:#eff6ff; padding:10px; border-radius:10px;">📝 Kuis</div> </div> <p style="margin-top:10px; color:#475569;"> Jika satu tahap belum selesai, maka tahap berikutnya <b>tidak akan terbuka</b>. </p> </div> </div> <!-- STEP 4 --> <div style="display:flex; gap:16px; margin-bottom:20px;"> <div style="font-size:34px;">⛔</div> <div> <h3 style="font-weight:700; font-size:18px;">Aturan Ketat Sistem</h3> <ul style="color:#475569; padding-left:18px; line-height:1.8;"> <li>Materi tidak bisa dibuka secara acak</li> <li>Video harus ditonton sampai selesai</li> <li>Nilai kuis harus memenuhi batas minimal</li> </ul> </div> </div> <!-- STEP 5 --> <div style="display:flex; gap:16px; margin-bottom:20px;"> <div style="font-size:34px;">🧪</div> <div> <h3 style="font-weight:700; font-size:18px;">Evaluasi Akhir</h3> <p style="color:#475569;"> Setelah seluruh materi selesai, siswa mengerjakan <b>kuis keseluruhan</b>. Jika nilai belum mencapai ketentuan, siswa harus <b>mengulang pembelajaran</b>. </p> </div> </div> <!-- STEP 6 --> <div style="display:flex; gap:16px;"> <div style="font-size:34px;">📊</div> <div> <h3 style="font-weight:700; font-size:18px;">Monitoring Guru</h3> <p style="color:#475569;"> Semua aktivitas siswa (materi, video, kuis, nilai) <b>terekam otomatis</b> dan dapat dilihat melalui <b>dashboard guru</b>. </p> </div> </div> <div style="text-align:right; margin-top:28px;"> <button onclick="closePanduan()" style="background:#2563eb; color:white; padding:12px 26px; border-radius:12px; font-weight:700;"> Tutup Panduan </button> </div> <script> function openPanduan() { document.getElementById("panduanModal").style.display = "flex"; } function closePanduan() { document.getElementById("panduanModal").style.display = "none"; } </script>
+ <div id="app-container" class="h-full w-full"><!-- HALAMAN PEMILIHAN LOGIN -->
+    
+   <div id="login-select-page" class="page active w-full h-full" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);">
+    <div style="min-height: 100%; display: flex; align-items: center; justify-content: center; padding: 20px;">
+     <div style="background: white; border-radius: 20px; padding: 40px; max-width: 500px; width: 100%; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
+      <div style="text-align: center; margin-bottom: 32px;">
+       <div style="width: 120px; height: 120px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+     <img src="https://lh3.googleusercontent.com/d/1SbBNz5SErKEybxrWn2HQt1h6gFPzHHxc" alt="Logo MAN 2 Garut" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+     <span style="font-size: 80px; display: none;">🏫</span>
+    </div>
+
+       <h1 style="font-size: 28px; font-weight: bold; color: #1e293b; margin-bottom: 8px;">WEB Pembelajaran Informatika</h1>
+       <p style="font-size: 16px; color: #64748b;">MAN 2 Garut</p>
+      </div>
+      <div style="text-align: center; margin-bottom: 24px;">
+       <p style="font-size: 18px; font-weight: 600; color: #1e293b;">Pilih Jenis Login</p>
+      </div>
+      <div style="display: grid; gap: 16px;"><button onclick="showLoginPage('student')" style="width: 100%; background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); color: white; border: none; padding: 20px; border-radius: 12px; font-size: 18px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(30, 58, 138, 0.4); display: flex; align-items: center; justify-content: center; gap: 12px;"> <span style="font-size: 32px;">🎓</span> <span>Login Siswa</span> </button> <button onclick="showLoginPage('admin')" style="width: 100%; background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); color: white; border: none; padding: 20px; border-radius: 12px; font-size: 18px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4); display: flex; align-items: center; justify-content: center; gap: 12px;"> <span style="font-size: 32px;">👨‍💼</span> <span>Login Admin</span> </button>
+       
+        <!-- ================= PANDUAN PENGGUNAAN WEB (VISUAL) ================= -->
+
+<!-- Tombol Panduan -->
+<div style="text-align:center; margin-top:8px; margin-bottom:60px;">
+  <button onclick="openPanduan()"
+    style="
+      background:linear-gradient(135deg,#4f6caf,#0c145c);
+      color:white;
+      padding:18px 32px;     
+      min-width:420px;       
+      border-radius:12px;
+      border:none;
+      font-size:18px;
+      font-weight:600;
+      cursor:pointer;
+      text-align:center;
+      box-shadow:0 4px 20px rgba(37,99,235,.35);
+    ">
+    📘 Panduan Penggunaan
+  </button>
+</div>
+
+
+
+
+<!-- Overlay -->
+<div id="panduanModal"
+  style="display:none; position:fixed; inset:0;
+  background:rgba(15,23,42,.65); z-index:9999;
+  align-items:center; justify-content:center;">
+
+  <!-- Card -->
+  <div style="background:white; width:92%; max-width:900px;
+  border-radius:22px; padding:30px;
+  max-height:88vh; overflow-y:auto;">
+
+    <h2 style="font-size:26px; font-weight:800; color:#1e293b; margin-bottom:10px;">
+      🧭 Alur Penggunaan Web Pembelajaran Informatika
+    </h2>
+
+    <p style="color:#475569; margin-bottom:22px;">
+      Web ini dirancang dengan <b>sistem pembelajaran berurutan</b>.
+      Siswa <b>tidak dapat melompati materi</b>. Semua aktivitas
+      tercatat dan dipantau oleh guru.
+    </p>
+
+    <!-- STEP 1 -->
+    <div style="display:flex; gap:16px; margin-bottom:20px;">
+      <div style="font-size:34px;">🔐</div>
+      <div>
+        <h3 style="font-weight:700; font-size:18px;">Login Pengguna</h3>
+        <p style="color:#475569;">
+          Pengguna dapat masuk sebagai <b>Siswa</b> atau <b>Guru</b>.
+          Setelah memilih login, pengguna mengisi <b>nama</b> dan
+          <b>memilih kelas</b>.
+        </p>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div style="display:flex; gap:16px; margin-bottom:20px;">
+      <div style="font-size:34px;">📚</div>
+      <div>
+        <h3 style="font-weight:700; font-size:18px;">Materi Aktif</h3>
+        <p style="color:#475569;">
+          Saat ini materi yang terbuka adalah <b>Semester 2 – Pertemuan 8</b>.
+          Materi Semester 1 sudah ditutup dan tidak dapat diakses kembali.
+        </p>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div style="display:flex; gap:16px; margin-bottom:20px;">
+      <div style="font-size:34px;">➡️</div>
+      <div>
+        <h3 style="font-weight:700; font-size:18px;">Alur Belajar Wajib</h3>
+        <p style="color:#475569;">
+          Siswa harus mengikuti pembelajaran secara <b>berurutan</b>:
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+        gap:12px; margin-top:10px;">
+          <div style="background:#eff6ff; padding:10px; border-radius:10px;">📘 Materi</div>
+          <div style="background:#eff6ff; padding:10px; border-radius:10px;">🎥 Video</div>
+          <div style="background:#eff6ff; padding:10px; border-radius:10px;">📝 Kuis</div>
+        </div>
+
+        <p style="margin-top:10px; color:#475569;">
+          Jika satu tahap belum selesai, maka tahap berikutnya
+          <b>tidak akan terbuka</b>.
+        </p>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div style="display:flex; gap:16px; margin-bottom:20px;">
+      <div style="font-size:34px;">⛔</div>
+      <div>
+        <h3 style="font-weight:700; font-size:18px;">Aturan Ketat Sistem</h3>
+        <ul style="color:#475569; padding-left:18px; line-height:1.8;">
+          <li>Materi tidak bisa dibuka secara acak</li>
+          <li>Video harus ditonton sampai selesai</li>
+          <li>Nilai kuis harus memenuhi batas minimal</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- STEP 5 -->
+    <div style="display:flex; gap:16px; margin-bottom:20px;">
+      <div style="font-size:34px;">🧪</div>
+      <div>
+        <h3 style="font-weight:700; font-size:18px;">Evaluasi Akhir</h3>
+        <p style="color:#475569;">
+          Setelah seluruh materi selesai, siswa mengerjakan
+          <b>kuis keseluruhan</b>.
+          Jika nilai belum mencapai ketentuan,
+          siswa harus <b>mengulang pembelajaran</b>.
+        </p>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div style="display:flex; gap:16px;">
+      <div style="font-size:34px;">📊</div>
+      <div>
+        <h3 style="font-weight:700; font-size:18px;">Monitoring Guru</h3>
+        <p style="color:#475569;">
+          Semua aktivitas siswa (materi, video, kuis, nilai)
+          <b>terekam otomatis</b> dan dapat dilihat melalui
+          <b>dashboard guru</b>.
+        </p>
+      </div>
+    </div>
+
+    <div style="text-align:right; margin-top:28px;">
+      <button onclick="closePanduan()"
+        style="background:#2563eb; color:white;
+        padding:12px 26px; border-radius:12px;
+        font-weight:700;">
+        Tutup Panduan
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function openPanduan() {
+    document.getElementById("panduanModal").style.display = "flex";
+  }
+  function closePanduan() {
+    document.getElementById("panduanModal").style.display = "none";
+  }
+</script>
+        </div>
+     </div>
+    </div>
 <!-- ================================================================= -->
  <div style="background: white; border-radius: 16px; padding: 32px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);">
    <h3 style="font-size: 24px; font-weight: bold; color: #1e293b; margin-bottom: 20px;">📍 Lokasi Sekolah</h3>
@@ -2008,6 +2179,7 @@ if (btn) btn.textContent = 'Masuk ke Platform 🚀';
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b050143e5e83bdd',t:'MTc2NjEyNzQzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 
 </html>
+
 
 
 
